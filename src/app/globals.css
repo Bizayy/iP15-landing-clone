@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+
+    --color-blue: #2997ff;
+
+    --color-gray: #86868b;
+
+    --color-gray: {
+        100: #94928d;
+        200: #afafaf;
+        300: #42424570;
+    }
+
+    --color-zinc: #101010;
+
 }
+
+.flex-center {
+    @apply flex items-center justify-center
+}
+
+.nav-height {
+    @apply h-[calc(100vh-60px)]
+}
+
+.btn {
+    @apply px-5 py-2 rounded-3xl bg-blue my-5 hover:bg-transparent border border-transparent hover:border hover:text-blue hover:border-blue
+}
+
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    width: 100dvw;
+    overflow-x: hidden;
+    height: 100%;
+    background: #000;
+    border-color: #3b3b3b;
+    user-select: none;
 }
