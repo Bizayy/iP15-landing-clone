@@ -13,7 +13,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Navbar Items */}
-                <div className="hidden sm:inline-flex sm:gap-10 text-white/50 hover:text-white transition-all">
+                <div className="hidden sm:inline-flex sm:gap-10 text-gray hover:text-white transition-all">
                     {navLists.map((navItem) => (
                         <span key={navItem}>
                             {navItem}
