@@ -15,13 +15,13 @@ export const hightlightsSlides = [
             "Game‑changing chip.",
             "Groundbreaking performance.",
         ],
-        video: '/videos/highlightFirstVideo',
+        video: '/assets/videos/highlightFirstVideo.mp4',
         videoDuration: 4,
     },
     {
         id: 2,
         textLists: ["Titanium.", "So strong. So light. So Pro."],
-        video: '/videos/highlightSecondVideo',
+        video: '/assets/videos/highlightSecondVideo.mp4',
         videoDuration: 5,
     },
     {
@@ -31,13 +31,13 @@ export const hightlightsSlides = [
             "longest optical zoom in",
             "iPhone ever. Far out.",
         ],
-        video: '/videos/highlightThirdVideo',
+        video: '/assets/videos/highlightThirdVideo.mp4',
         videoDuration: 2,
     },
     {
         id: 4,
         textLists: ["All-new Action button.", "What will yours do?."],
-        video: '/videos/highlightFourthVideo',
+        video: '/assets/videos/highlightFourthVideo.mp4',
         videoDuration: 3.63,
     },
 ];
