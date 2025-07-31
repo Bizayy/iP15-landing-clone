@@ -5,7 +5,7 @@ import { navLists } from "@/constants/page";
 const Navbar = () => {
     return (
         <div className="w-full py-5 px-4 sm:px-9 text-sm xl:px-0">
-            <nav className="w-full text-sm flex items-center justify-between lg:max-w-[1120px] mx-auto">
+            <nav className="text-sm flex items-center justify-between w-9/12 md:w-10/12 mx-auto">
 
                 {/* Apple Logo */}
                 <div>

@@ -18,7 +18,7 @@ const Highlights = () => {
         })
     }, [])
     return (
-        <section id='highlights' className="w-full bg-zinc px-4 pt-20">
+        <section id='highlights' className="w-full bg-zinc px-4 pt-20 pb-10">
             <div className="w-full lg:max-w-[1120px] mx-auto">
                 <div className="w-full flex flex-col md:flex-row md:items-baseline md:justify-between gap-5">
                     <h1 className="highlights-title">Get the highlights.</h1>

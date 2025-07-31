@@ -27,6 +27,7 @@ const VideoCarousel = () => {
 
     //the useEffect below handles the playing and pausing of the video
     useEffect(() => {
+        ScrollTrigger.refresh();
         // if (loadedData.length > 3) {
         if (videoRef.current[videoId]) {
             if (!isPlaying) {
@@ -113,7 +114,7 @@ const VideoCarousel = () => {
 
     useGSAP(() => {
         gsap.to('#videoContainerDiv', {
-            transform: `translateX(${-100 * videoId}%)`,
+            x: `${-100 * videoId}%`,
             duration: 2,
             ease: 'power2.inOut',
         })
@@ -126,7 +127,14 @@ const VideoCarousel = () => {
                 setVideo((prev) => ({ ...prev, startPlay: true, isPlaying: true }))
             }
         })
-    }, [])
+        // ScrollTrigger.create({
+        //     trigger: '#video',
+        //     start: 'top center',
+        //     end: 'bottom center',
+        //     markers: true, // show visual indicators
+        //     onEnter: () => console.log('video in view'),
+        // });
+    }, [videoId, startPlay])
 
     const handleLoadedData = (i: number, e: SyntheticEvent<HTMLVideoElement, Event>) => setLoadedData((prev) => [...prev, e]);
 
@@ -134,9 +142,9 @@ const VideoCarousel = () => {
         <div className="my-10">
             <div className="flex items-center overflow-hidden">
                 {hightlightsSlides.map((slide, i) => (
-                    <div key={slide.id} className="mr-8 sm:mr-14 md:mr-20 w-[88vw] max-w-[400px] h-[35vh] sm:w-[70vw] sm:max-w-[550px] sm:h-[50vh] md:max-w-[650px] md:h-[70vh]
-                        flex-none" id="videoContainerDiv">
-                        <div className="bg-black w-full h-full rounded-3xl flex-center relative overflow-hidden">
+                    <div key={slide.id} className="pr-8 sm:pr-14 md:pr-20 flex-none" id="videoContainerDiv">
+                        <div className="bg-black rounded-3xl flex-center relative overflow-hidden w-[88vw] max-w-[450px] h-[35vh] sm:w-[70vw]
+                            sm:max-w-[550px] sm:h-[50vh] md:max-w-[650px] md:h-[70vh] lg:max-w-[750px]">
                             <div className="absolute top-10 left-5 z-10">
                                 {slide.textLists.map((text) => (
                                     <p key={text} className="font-medium sm:text-2xl">{text}</p>
@@ -147,7 +155,9 @@ const VideoCarousel = () => {
                                     i !== hightlightsSlides.length - 1 ? handleProcess('video-end', i) : handleProcess('last-video', i)
                                 }}
                                 ref={(el) => { if (el) videoRef.current[i] = el; }}
-                                onPlay={() => { setVideo((prevVideoInfo) => ({ ...prevVideoInfo, isPlaying: true })) }}>
+                                onPlay={() => { setVideo((prevVideoInfo) => ({ ...prevVideoInfo, isPlaying: true })) }}
+                                className={`${slide.id === 2 && 'translate-x-40'} pointer-events-none`}
+                            >
                                 <source src={slide.video} type="video/mp4" />
                             </video>
                         </div>
